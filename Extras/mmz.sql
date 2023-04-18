@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 07, 2023 at 10:09 PM
+-- Generation Time: Apr 18, 2023 at 08:32 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -99,15 +99,7 @@ CREATE TABLE IF NOT EXISTS `bank_accounts` (
   KEY `FK_BANK_ACCOUNTS_EMPLOYEES` (`employee_id`),
   KEY `FK_BANK_ACCOUNTS_BANKS` (`bank_account_bank`),
   KEY `FK_BANK_ACCOUNTS_VENDORS` (`vendor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `bank_accounts`
---
-
-INSERT INTO `bank_accounts` (`bank_account_id`, `bank_account_title`, `bank_account_number`, `bank_account_bank`, `vendor_id`, `employee_id`) VALUES
-(55, 'Ameer Hamza', '0978234474602', 38, NULL, 28),
-(56, 'Tayyab Zahid', '09067900408533', 14, NULL, 30);
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -127,21 +119,13 @@ CREATE TABLE IF NOT EXISTS `beneficiaries` (
   `employee_id` int DEFAULT NULL,
   `beneficiary_type` varchar(255) NOT NULL,
   `beneficiary_bank_account` int DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`beneficiary_id`),
   KEY `vendor_id` (`vendor_id`),
   KEY `employee_id` (`employee_id`),
   KEY `FK_BENEFICIARIES_CITIES` (`beneficiary_city`),
   KEY `FK_BENEFICIARIES_BANK_ACCOUNTS` (`beneficiary_bank_account`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `beneficiaries`
---
-
-INSERT INTO `beneficiaries` (`beneficiary_id`, `beneficiary_name`, `beneficiary_city`, `beneficiary_cell_primary`, `beneficiary_cell_secondary`, `beneficiary_about`, `vendor_id`, `employee_id`, `beneficiary_type`, `beneficiary_bank_account`) VALUES
-(14, 'Ameer Hamza', 14, '03044052378', '03107446161', 'Supervisor', NULL, 28, 'employee', 55),
-(15, 'Imran Bhai', 14, '03051392214', '03422561625', 'Workshop Supervisor', NULL, 29, 'employee', NULL),
-(16, 'Muhammad Yaqoob', 14, '03049086343', '03176086343', 'Senior Carpenter', NULL, 30, 'employee', 56);
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -338,17 +322,9 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `client_city` int NOT NULL,
   `client_cell_primary` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `client_cell_secondary` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `clients`
---
-
-INSERT INTO `clients` (`client_id`, `client_name`, `client_type`, `client_address`, `client_city`, `client_cell_primary`, `client_cell_secondary`) VALUES
-(8, 'NDURE', 'company', 'Jail Road', 3, '', ''),
-(9, 'Servis Shoes', 'company', 'Jail Road', 3, '', ''),
-(10, 'Raja Rani', 'private', 'City Road', 14, '', '');
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -391,20 +367,12 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `employee_city` int DEFAULT NULL,
   `employee_about` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `bank_account` int DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`employee_id`),
   KEY `FK_EMPLOYEES_EMPLOYEE_CATEGORIES` (`employee_category`),
   KEY `FL_EMPLOYEES_BANK_ACCOUNTS` (`bank_account`),
   KEY `EMPLOYEES_CITIES` (`employee_city`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`employee_id`, `employee_name`, `employee_category`, `employee_cell_primary`, `employee_cell_secondary`, `employee_city`, `employee_about`, `bank_account`) VALUES
-(28, 'Ameer Hamza', 2, '03044052378', '03107446161', 14, 'Supervisor', 55),
-(29, 'Imran Bhai', 1, '03051392214', '03422561625', 14, 'Workshop Supervisor', NULL),
-(30, 'Muhammad Yaqoob', 1, '03049086343', '03176086343', 14, 'Senior Carpenter', 56);
 
 -- --------------------------------------------------------
 
@@ -444,19 +412,11 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `project_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `project_start_date` date NOT NULL,
   `project_end_date` date NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`project_id`),
   KEY `FK_PROJECTS_CITIES` (`project_city`),
   KEY `FK_PROJECTS_CLIENTS` (`project_client`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`project_id`, `project_name`, `project_client`, `project_city`, `project_location`, `project_start_date`, `project_end_date`) VALUES
-(6, 'Raja Rani City Road Sargodha', 10, 14, 'City Road', '2023-04-08', '2023-05-02'),
-(7, 'Servis Shoes Kachehri Bazar Sargodha', 9, 14, 'Kachehri Bazar', '2023-03-20', '2023-04-07'),
-(8, 'NDURE Nia Bazar Jaranwala', 8, 49, 'Nia Bazar', '2023-02-03', '2023-02-25');
 
 -- --------------------------------------------------------
 
@@ -501,17 +461,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   PRIMARY KEY (`transaction_id`),
   KEY `FK_TRANSACTIONS_COMPANY_ACCOUNTS` (`transaction_account_used`),
   KEY `transaction_cluster` (`transaction_cluster`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `transactions`
---
-
-INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `transaction_amount`, `transaction_type`, `transaction_cluster`, `transaction_account_used`) VALUES
-(74, '2023-04-07', '20000.00', 'online', 1, 1),
-(75, '2023-04-07', '20000.00', 'cash', 2, 1),
-(76, '2023-04-07', '2000.00', 'cash', 3, 1),
-(77, '2023-06-07', '5000.00', 'online', 4, 1);
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -559,18 +509,7 @@ CREATE TABLE IF NOT EXISTS `transaction_details` (
   KEY `fk_destination` (`transaction_detail_destination_beneficiary`),
   KEY `fk_cluster` (`transaction_cluster`),
   KEY `fk_category` (`transaction_detail_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `transaction_details`
---
-
-INSERT INTO `transaction_details` (`transaction_detail_id`, `transaction_detail_date`, `transaction_detail_intermediate_beneficiary`, `transaction_detail_destination_beneficiary`, `transaction_cluster`, `transaction_detail_purpose`, `transaction_detail_category`, `transaction_detail_project`, `transaction_detail_amount`) VALUES
-(35, '2023-04-07', 16, 16, 1, 'Hardware Purchase', 1, 8, '20000.00'),
-(36, '2023-04-07', 14, 15, 2, 'Electric Goods', 1, 7, '10000.00'),
-(37, '2023-04-07', 14, 14, 3, 'Electric Goods', 1, 8, '1000.00'),
-(38, '2023-04-07', 16, 16, 3, 'Hardware Material', 1, 6, '1000.00'),
-(39, '2023-06-07', 14, 14, 4, 'Goods From Workshop to Site', 2, 6, '5000.00');
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -587,10 +526,11 @@ CREATE TABLE IF NOT EXISTS `vendors` (
   `vendor_cell_secondary` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `vendor_about` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `bank_account` int DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`vendor_id`),
   KEY `FK_VENDORS_CITIES` (`vendor_city`),
   KEY `FL_VENDORS_BANK_ACCOUNTS` (`bank_account`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Constraints for dumped tables
@@ -624,6 +564,12 @@ ALTER TABLE `employees`
 ALTER TABLE `projects`
   ADD CONSTRAINT `FK_PROJECTS_CITIES` FOREIGN KEY (`project_city`) REFERENCES `cities` (`city_id`),
   ADD CONSTRAINT `FK_PROJECTS_CLIENTS` FOREIGN KEY (`project_client`) REFERENCES `clients` (`client_id`);
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `FK_TRANSACTIONS_COMPANY_ACCOUNT` FOREIGN KEY (`transaction_account_used`) REFERENCES `company_accounts` (`company_account_id`);
 
 --
 -- Constraints for table `transaction_details`
