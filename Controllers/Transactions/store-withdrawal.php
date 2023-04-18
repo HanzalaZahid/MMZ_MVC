@@ -6,8 +6,8 @@ core('Validator');
 if(empty($errors)){
     models('Transactions');
     $transactions   =   new Transactions($config);
-    $cluster =   $transactions->addWithdrawal($_POST);
-    header("Location:   /transaction?cluster=$cluster");
+    $response =   $transactions->addWithdrawal($_POST);
+    header("Location:   /transaction?cluster=".urlencode($response['cluster'])."&detail_id=".urlencode($response['detail_id']));
 } else{
     header("Location:   /add-withdrawal?errors=".urlencode(serialize($errors)));
 }

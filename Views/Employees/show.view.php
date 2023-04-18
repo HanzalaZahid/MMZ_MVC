@@ -8,7 +8,7 @@ view("partials","header");
             <?php extract($employee);?>
             <h2 class="title"><?php echo $employee_name ?></h2>
             <div class="options">
-                <a href="/edit-client">Edit Client</a>
+                <a href="/edit-employee?employee_id=<?php echo $employee_id; ?>">Edit Employee</a>
             </div>
         </div>
         <div class="details_container">

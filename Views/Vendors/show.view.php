@@ -8,7 +8,7 @@ view("partials","header");
             <?php extract($vendor);?>
             <h2 class="title"><?php echo $vendor_name; ?></h2>
             <div class="options">
-                <a href="/edit-vendor">Edit Vendor</a>
+                <a href="/edit-vendor?vendor_id=<?php echo $vendor_id;?>">Edit Vendor</a>
             </div>
         </div>
         <div class="details_container">
@@ -53,7 +53,7 @@ view("partials","header");
                 <span>650313</span>
             </div>
         </div>
-        <table class="list">
+        <!-- <table class="list">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -85,7 +85,7 @@ view("partials","header");
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
     <script>
         $(document).ready(function () {

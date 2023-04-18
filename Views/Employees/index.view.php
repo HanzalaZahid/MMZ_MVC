@@ -10,6 +10,19 @@ view("partials","header");
                 <a href="/add-employee">Add Employee</a>
             </div>
         </div>
+        <div class="model-dialogue delete-employees-dialogue">
+            <div class="head">
+                <label>Delete Transaction</label>
+                <button class="close-model"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="content">
+                Do you want to delete transaction?
+            </div>
+            <div class="foot">
+                <button class="secondary">No</button>
+                <a class="primary danger" href="delete-transaction?id=">Yes</a>
+            </div>
+        </div>
         <div class="table employees_list">
             <div class="row headings">
                 <div class="col">ID</div>

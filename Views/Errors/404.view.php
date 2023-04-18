@@ -9,7 +9,7 @@ view('partials', 'header');
         <?php if (isset($message)):?>
         <h3><?php echo $message ?></h3>
         <?php endif?>
-        <a href="/home" class="secondary">Goto Home</a>
+        <a href="/home" class="primary back_to_home">Goto Home</a>
     </div>
 </body>
 </html>

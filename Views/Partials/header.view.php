@@ -24,4 +24,11 @@
                 </div>
             </div>
         </div>
-    </header>
+</header>
+<footer>
+        <div class="left">&copy; MMZ INTERIOR DESIGN FIRM</div>
+        <div class="right">CONTACT: &nbsp;+923076003632 &nbsp;  - &nbsp; +923432910057</div>
+</footer>
+<div class="watermark">
+    <img src="assets/images/watermark.png" alt="">
+</div>

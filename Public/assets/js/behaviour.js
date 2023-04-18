@@ -2,9 +2,79 @@ $(document).ready(
     ()=>{
         // DATATABLE
         $('table.list').DataTable();
+        // DIALOGUE MODEL
+        let dialogue    =   $('.model-dialogue');
+        let disgardButton    =   $('.model-dialogue .foot button');
+        let closeDialogue   =   $('.model-dialogue .close-model');
+        closeDialogue.on('click', ()=>{
+            dialogue.hide();
+        })
+        disgardButton.on('click', ()=>{
+            dialogue.hide();
+        })
+        // DELETE TRANSACTION
+        let transactionDeleteButtons = $('.Transaction_list td a.danger');
+        transactionDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
+        
+        // DELETE CLIENT
+        let clientDeleteButtons =   $('.clients_list .col:last-child a.danger');
+        clientDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
+        // DELETE Vendor
+        let vendorDeleteButtons =   $('.vendors_list .col:last-child a.danger');
+        vendorDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
+        // DELETE employee
+        let employeeDeleteButtons =   $('.employees_list .col:last-child a.danger');
+        employeeDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
+        // DELETE project
+        let projectsDeleteButtons =   $('.projects_list .col:last-child a.danger');
+        projectsDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
+            //ADD ONLINE TRANSACTION PAGE
         //ADD ONLINE TRANSACTION PAGE
-        //ADD ONLINE TRANSACTION PAGE
-
         //CHANGING VALUE OF DESTINATION ON INTERMIDATE SELECT
         let intermidiate    =   $('form.add_online_transaction #intermediate');
         let destination    =   $('form.add_online_transaction #destination');
@@ -27,6 +97,7 @@ $(document).ready(
                 let clone   =   amountGroup.clone();
                 console.dir(clone)
                 clone.find('.amount_input').val("");
+                clone.find(".transaction_id").remove();
                 clone.insertBefore(amountFeildGeneratorButton);
             }
         )
@@ -43,7 +114,7 @@ $(document).ready(
             count   =   1;
         })
         // Wtithdrawal Details Generater
-        let withdrawalDetails = $('form.add_withdrawal_transaction .withdrawal_details .detail');
+        let withdrawalDetails = $('form.add_withdrawal_transaction .withdrawal_details .detail:first-child');
         let withdrawalDetailsGenerator = $('form.add_withdrawal_transaction .withdrawal_details .detail_generator');
         let withDrawalIntermidiate = $('form.add_withdrawal_transaction .withdrawal_details .detail .intermediate');
         let withDrawalDestination = $('form.add_withdrawal_transaction .withdrawal_details .detail .destination');
@@ -54,8 +125,13 @@ $(document).ready(
         let clone = withdrawalDetails.clone();
         // SETTING VALUES IN INPUT FIELD
         clone.find('.detail_purpose').val('');
+        clone.find('.hidden').remove();
         clone.find('.detail_amount').val('');
         clone.find('.detail_date').val(withdrawalDate.val());
+        clone.find('.intermediate option:selected').removeAttr('selected');
+        clone.find('.destination option:selected').removeAttr('selected');
+        clone.find('.project option:selected').removeAttr('selected');
+        clone.find('.category option:selected').removeAttr('selected');
         clone.insertBefore(withdrawalDetailsGenerator);
         // get the newly added select tag and attach onchange event listener
         let withDrawalIntermidiate = clone.find('.intermediate');
@@ -67,7 +143,9 @@ $(document).ready(
 
         // SETTING DEFAULT ACCOUNT USED
         let accountUsed =   $('#account_used');
-        accountUsed.val(1);
+        if((accountUsed.find('option:selected')).val()    ===  ""){
+            $('#account_used option[value="1"]').prop('selected', true);
+        };
 
         // SETTING TAB ON DATE
         $('input[type=date]').keydown(function(e) {

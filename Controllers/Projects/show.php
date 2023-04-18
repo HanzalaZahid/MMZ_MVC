@@ -8,6 +8,8 @@ if(isset($_GET['id'])){
 models('Projects');
 $projects   =   new Projects($config);
 $project    =   $projects->get($id);
-$args =   $project;
+$investment =   $projects->getInvestment($id);
+$args['project'] =   $project;
+$args['investment'] =   $investment;
 view("projects", "show", $args);
 ?>

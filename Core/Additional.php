@@ -41,15 +41,20 @@ class Additional extends Database{
         LEFT JOIN employees 
         on beneficiaries.employee_id	=	employees.employee_id
         LEFT JOIN employee_categories
-        ON employee_category	=	employee_category_id";
+        ON employee_category	=	employee_category_id
+        WHERE
+        beneficiaries.active  =   true";
         $result = $this->fetchAllOrAbort($sql);
         return $result;
     }
     public function getLastTransactionDate(){
         $query  =   "SELECT transaction_date FROM `transactions` ORDER BY transaction_id DESC limit 1";
         $response   =   $this->fetchOrAbort($query);
-        $date   =   $response['transaction_date'];
-        return $date;
+        if($response){
+            $date   =   $response['transaction_date'];
+            return $date;
+        }
+        return date('mdy');
     }
 }
 ?>

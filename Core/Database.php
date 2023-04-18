@@ -21,11 +21,19 @@ class Database{
         die();
     }
     protected function insertOrAbort($query, $args =   []){
-            $response   =   $this->query($query, $args);
-            if($this->conn->lastInsertId()  === false){
-                $this->abort("Error triggered from InsertOrAbort");
-            }
-            return $this->conn->lastInsertId();
+        $response   =   $this->query($query, $args);
+        if($this->conn->lastInsertId()  === false){
+            $this->abort("Error triggered from InsertOrAbort");
+        }
+        return $this->conn->lastInsertId();
+    }
+    protected function updateOrAbort($query, $args =   []){
+        $response   =   $this->query($query, $args);
+        return $response->rowCount();
+    }
+    protected function deleteOrAbort($query, $args =   []){
+        $response   =   $this->query($query, $args);
+        return $response->rowCount();
     }
     protected function fetchAllOrAbort($query, $args =   []){
         try{
@@ -39,9 +47,6 @@ class Database{
     protected function fetchOrAbort($query, $args =   []){
             $response   =   $this->query($query, $args);
             $result     =   $response->fetch();
-            if (empty($result)){
-                $this->abort("No Records Found.");
-            }
             return $result;
     }
     protected function getLastInsertedId(){

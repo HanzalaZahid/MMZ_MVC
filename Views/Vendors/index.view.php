@@ -10,6 +10,19 @@ view("partials","header");
                 <a href="/add-vendor">Add Vendor</a>
             </div>
         </div>
+        <div class="model-dialogue delete-vendor-dialogue">
+            <div class="head">
+                <label>Delete Transaction</label>
+                <button class="close-model"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="content">
+                Do you want to delete Employee?
+            </div>
+            <div class="foot">
+                <button class="secondary">No</button>
+                <a class="primary danger" href="">Yes</a>
+            </div>
+        </div>
         <div class="table vendors_list">
             <div class="row headings">
                 <div class="col">ID</div>

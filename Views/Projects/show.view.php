@@ -3,11 +3,12 @@ view("partials","head");
 view("partials","header");
 ?>
 <body>
+    <?php extract($project)?>
     <div class="main_content">
         <div class="content_head">
             <h2 class="title"><?php echo $project_name ?></h2>
             <div class="options">
-                <a href="/edit-project">Edit Project</a>
+                <a href="/edit-project?project_id=<?php echo $project_id?>">Edit Project</a>
             </div>
         </div>
         <div class="details_container">
@@ -33,7 +34,7 @@ view("partials","header");
             </div>
             <div class="details_group">
                 <label for="invested">Invested</label>
-                <span>54156165</span>
+                <span><?php echo $investment ?></span>
             </div>
             <div class="details_group">
                 <label for="received">Received</label>

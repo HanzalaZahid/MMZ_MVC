@@ -1,0 +1,107 @@
+
+header .header_container .right{
+    display: none;
+}
+body{
+    padding-top: 100px !important;
+}
+header .header_container{
+    justify-content: center !important;
+    padding-top: 22px !important;
+    padding-bottom: 8px !important;
+    img{
+        max-width: 100px;
+        width: 100px;
+    }
+}
+header{
+    box-shadow: none !important;
+}
+footer{
+    display: flex !important;
+}
+.content_head .options{
+    display: none !important;
+}
+.content_head{
+    justify-content: center !important;
+    .title{
+        &::before{
+            display: none !important;
+        }
+        margin-bottom: 22px !important;
+    }
+}
+.details_container{
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+*{
+    -webkit-print-color-adjust: exact !important;
+    -moz-print-color-adjust: exact !important;
+    -ms-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+.dataTables_length, .dataTables_filter, .dataTables_paginate{
+    display: none !important;
+}
+td:last-child, th:last-child{
+    display: none !important;
+}
+th::before, th::after{
+    display: none !important;
+}
+.col:last-child{
+    max-width: 168px;
+}
+a{
+    &.danger, &.secondary, &.primary{
+        display: none !important;
+    }
+}
+.column>.title{
+    padding-bottom: 16px !important;
+}
+.table{
+    max-width: 100% !important;
+    min-width: 100% !important;
+    overflow-x: hidden !important;
+}
+.transactions .dataTables_wrapper{
+    width: 100% !important;
+}
+.destination_details ul {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+.details_group{
+    align-items: start !important;
+}
+.destination_details ul li{
+    align-items: start !important;
+}
+*{
+    color: black !important;
+}
+button{
+    display: none !important;
+}
+.main_content{
+    padding-bottom: 60px !important;
+}
+.watermark{
+    display: flex !important;
+}
+@page {
+    margin: 0;
+ }
+ .main_content{
+    margin: .3in !important;
+ }
+.Transaction_list{
+    tr{
+        td, th{
+            &:nth-child(1), &:nth-child(6), &:nth-child(7){
+                display: none !important;
+            }
+        }
+    }
+}

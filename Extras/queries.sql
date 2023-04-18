@@ -20,3 +20,6 @@ ORDER BY beneficiary_name
 
 -- ANOTHER
 SELECT b.*, ba.* FROM beneficiaries b LEFT JOIN employees e ON b.employee_id = e.employee_id LEFT JOIN bank_accounts ba ON b.beneficiary_bank_account = ba.bank_account_id WHERE b.vendor_id IS NULL UNION SELECT b.*, ba.* FROM beneficiaries b LEFT JOIN vendors v ON v.vendor_id = b.vendor_id LEFT JOIN bank_accounts ba ON b.beneficiary_bank_account = ba.bank_account_id WHERE b.employee_id IS NULL;
+
+
+

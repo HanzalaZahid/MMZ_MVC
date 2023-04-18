@@ -6,7 +6,7 @@ view('partials', 'header');
 <body>
     <div class="main_content">
         <h2>Error 556. Insertion Failed</h2>
-        <a href="/home" class="secondary">Goto Home</a>
+        <a href="/home" class="primary back_to_home">Goto Home</a>
     </div>
 </body>
 </html>

@@ -6,8 +6,8 @@ core('Validator');
 if(empty($errors)){
     models('Transactions');
     $transactions   =   new Transactions($config);
-    $id =   $transactions->addTransfer($_POST);
-    header("Location:   /transaction?id=$id");
+    $response =   $transactions->addTransfer($_POST);
+    header("Location:   /transaction?cluster=".urlencode($response['cluster'])."&detail_id=".urlencode($response['detail_id']));
 } else{
     header("Location:   /add-transfer?errors=".urlencode(serialize($errors)));
 }
