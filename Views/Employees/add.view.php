@@ -7,7 +7,7 @@ view("partials","header");
         <div class="content_head">
             <h2 class="title"><?php echo isset($employee)?"Edit":"Add"; ?> Employee</h2>
         </div>
-        <form action="/store-employee" method="post" class="grid">
+        <form action="<?php echo isset($employee)?"/put-employee":"/store-employee"?>" method="post" class="grid">
             <?php if(isset($employee)): ?>
                 <input type="hidden" name="__method" value="put">
                 <input type="hidden" name="employee_id" value="<?php echo $employee['employee_id']?>">

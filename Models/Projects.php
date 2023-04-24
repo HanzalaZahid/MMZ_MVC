@@ -80,7 +80,7 @@ class Projects extends Database{
         (
             `project_name`, 
             `project_client`, 
-            `project_city`,`
+            `project_city`,
             `project_location`, 
             `project_start_date`, 
             `project_end_date`

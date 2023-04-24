@@ -6,7 +6,7 @@ $router->get('/home', 'dashboard', 'index');
 $router->get('/clients', 'clients', 'index');
 $router->get('/add-client', 'clients', 'add');
 $router->post('/store-client', 'clients', 'store');
-$router->put('/store-client', 'clients', 'put');
+$router->put('/put-client', 'clients', 'put');
 $router->get('/client', 'clients', 'show');
 $router->get('/edit-client', 'clients', 'edit');
 $router->get('/delete-client', 'clients', 'destroy');
@@ -25,7 +25,7 @@ $router->get('/projects', 'projects', 'index');
 $router->get('/add-project', 'projects', 'add');
 $router->get('/project', 'projects', 'show');
 $router->post('/store-project', 'projects', 'store');
-$router->put('/store-project', 'projects', 'put');
+$router->put('/put-project', 'projects', 'put');
 $router->get('/edit-project', 'projects', 'edit');
 $router->get('/delete-project', 'projects', 'destroy');
 // VENDORS
@@ -33,7 +33,7 @@ $router->get('/vendors', 'vendors', 'index');
 $router->get('/add-vendor', 'vendors', 'add');
 $router->get('/vendor', 'vendors', 'show');
 $router->post('/store-vendor', 'vendors', 'store');
-$router->put('/store-vendor', 'vendors', 'put');
+$router->put('/put-vendor', 'vendors', 'put');
 $router->get('/delete-vendor', 'vendors', 'destroy');
 $router->get('/edit-vendor', 'vendors', 'edit');
 // EMPLOYEES
@@ -41,7 +41,7 @@ $router->get('/employees', 'employees', 'index');
 $router->get('/add-employee', 'employees', 'add');
 $router->get('/employee', 'employees', 'show');
 $router->post('/store-employee', 'employees', 'store');
-$router->put('/store-employee', 'employees', 'put');
+$router->put('/put-employee', 'employees', 'put');
 $router->get('/edit-employee', 'employees', 'edit');
 $router->get('/delete-employee', 'employees', 'destroy');
 ?>

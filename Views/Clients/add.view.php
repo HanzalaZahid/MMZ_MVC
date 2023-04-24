@@ -10,7 +10,7 @@ view("partials","header");
         <?php if(isset($client)):?>
             <?php extract($client)?>
         <?php endif?>
-        <form action="/store-client" method="post" class="grid">
+        <form action="<?php echo isset($client)?"/put-client":"/store-client"?>" method="post" class="grid">
             <?php if(isset($client)):?>
                 <input type="hidden" name="__method" value="put">
                 <input type="hidden" name="client_id" value="<?php echo $client_id?>">

@@ -8,7 +8,7 @@ view("partials","header");
         <div class="content_head">
             <h2 class="title"><?php echo isset($project)?"Edit Project":"Add Project";?></h2>
         </div>
-        <form action="/store-project" method="post" class="grid">
+        <form action="<?php echo isset($project)?"/put-project":"/store-project"?>" method="post" class="grid">
             <?php if(isset($project)):?>
                 <input type="hidden" name="__method"    value="put">
                 <input type="hidden" name="project_id"    value="<?php echo $project_id ?>">
