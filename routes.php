@@ -28,6 +28,12 @@ $router->post('/store-project', 'projects', 'store');
 $router->put('/put-project', 'projects', 'put');
 $router->get('/edit-project', 'projects', 'edit');
 $router->get('/delete-project', 'projects', 'destroy');
+// PROJECT TEAMS
+$router->get('/add-project-team', 'projects\teams', 'add');
+$router->get('/project-team', 'projects\teams', 'show');
+$router->post('/store-project-team', 'projects\teams', 'store');
+$router->put('/put-project-team', 'projects\teams', 'put');
+$router->get('/edit-project-team', 'projects\teams', 'edit');
 // VENDORS
 $router->get('/vendors', 'vendors', 'index');
 $router->get('/add-vendor', 'vendors', 'add');

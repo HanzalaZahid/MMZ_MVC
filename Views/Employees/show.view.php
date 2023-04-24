@@ -49,17 +49,16 @@ view("partials","header");
                 <span><?php echo empty($bank_account_number)?"N/A":$bank_account_number ?></span>
             </div>
         </div>
-        <div class="details_group details_list">
-            <label for="team">Projects Contributed</label>
-            <ol>
-                <li><a href="">NDURE Girls College Road Sahiwal</a></li>
-                <li><a href="">Servis Main Bazar Haripur</a></li>
-                <li><a href="">Servis Main Bazar Haripur</a></li>
-                <li><a href="">Servis Main Bazar Haripur</a></li>
-                <li><a href="">Servis Main Bazar Haripur</a></li>
-                <li><a href="">Servis Main Bazar Haripur</a></li>
-            </ol>
-        </div>
+        <?php if (isset($projects) && !empty($projects)):?>
+            <div class="details_group details_list">
+                <label for="team">Projects Contributed</label>
+                <ol>
+                    <?php foreach($projects as $project):?>
+                        <li><a href="/project?id=<?php echo $project['project_id']?>"><?php echo $project['project_name']?></a></li>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+        <?php endif;?>
         <div class="details_container">
         </div>
     </div>

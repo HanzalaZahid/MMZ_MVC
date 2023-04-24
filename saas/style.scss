@@ -450,6 +450,7 @@ form.grid, .multi_details>.detail, .details_container{
         li{
             border: 1px solid black;
             padding: 4px 12px;
+            display: flex;
             &:nth-child(even){
                 border-left: none;
             }
@@ -506,6 +507,8 @@ form.grid, .multi_details>.detail, .details_container{
         }
         background-color: white;
     }
+}
+.team-member-generator{
 }
 table.Transaction_list{
     width: 100%!important;

@@ -8,6 +8,7 @@ view("partials","header");
         <div class="content_head">
             <h2 class="title"><?php echo $project_name ?></h2>
             <div class="options">
+                <a href="/add-project-team?project_id=<?php echo $project_id?>">Manage Team</a>
                 <a href="/edit-project?project_id=<?php echo $project_id?>">Edit Project</a>
             </div>
         </div>
@@ -45,17 +46,16 @@ view("partials","header");
                 <span class="positive">64156165</span>
             </div>
         </div>
+        <?php if (isset($team)):?>
         <div class="details_group details_list">
             <label for="team">Project Team</label>
             <ol>
-                <li><a href="">Ameer Hamza (Electrician)</a></li>
-                <li><a href="">Riaz Bhai (Carpenter)</a></li>
-                <li><a href="">Riaz Bhai (Carpenter)</a></li>
-                <li><a href="">Riaz Bhai (Carpenter)</a></li>
-                <li><a href="">Riaz Bhai (Carpenter)</a></li>
-                <li><a href="">Riaz Bhai (Carpenter)</a></li>
+                <?php foreach($team as $member):?>
+                    <li><a href="/employee?id=<?php echo $member['employee_id'];?>"><?php echo $member['employee_name'] . ' (' . $member['employee_category_name'] . (isset($member['employee_about']) ? " - {$member['employee_about']}" : "") . ')';?></a></li>
+                <?php endforeach; ?>
             </ol>
         </div>
+        <?php endif; ?>
         <div class="details_container">
         </div>
     </div>

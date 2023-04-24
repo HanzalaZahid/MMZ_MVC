@@ -73,6 +73,18 @@ $(document).ready(
                 dialogue.show();
             });
         });
+        // ADD TEAM MEMEBER
+            // GENERATE TEAM MEMEBERS
+            let teamMemberGeneratorButton   =   $('.team-member-generator');
+            let memberDetail                =   $('form.add-team-member .form_group:first');
+            console.log(memberDetail)
+            teamMemberGeneratorButton.on('click', ()=>{
+                let clone   =   memberDetail.clone();
+                let member  =   clone.find('select').val("");
+                clone.insertBefore(teamMemberGeneratorButton);
+
+            })
+
             //ADD ONLINE TRANSACTION PAGE
         //ADD ONLINE TRANSACTION PAGE
         //CHANGING VALUE OF DESTINATION ON INTERMIDATE SELECT
