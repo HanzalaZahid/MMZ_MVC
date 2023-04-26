@@ -50,4 +50,12 @@ $router->post('/store-employee', 'employees', 'store');
 $router->put('/put-employee', 'employees', 'put');
 $router->get('/edit-employee', 'employees', 'edit');
 $router->get('/delete-employee', 'employees', 'destroy');
+// BENEFICIARIES
+$router->get('/beneficiaries', 'beneficiaries', 'index');
+$router->get('/add-beneficiary', 'beneficiaries', 'add');
+$router->get('/beneficiary', 'beneficiaries', 'show');
+$router->post('/store-beneficiary', 'beneficiaries', 'store');
+$router->put('/put-beneficiary', 'beneficiaries', 'put');
+$router->get('/edit-beneficiary', 'beneficiaries', 'edit');
+$router->get('/delete-beneficiary', 'beneficiaries', 'destroy');
 ?>

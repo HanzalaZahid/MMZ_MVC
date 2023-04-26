@@ -20,6 +20,7 @@
                         <li><a href="/clients">Clients</a></li>
                         <li><a href="/vendors">Vendors</a></li>
                         <li><a href="/employees">Employees</a></li>
+                        <li><a href="/beneficiaries">Beneficiaries</a></li>
                     </ul>
                 </div>
             </div>

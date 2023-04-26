@@ -60,7 +60,7 @@ extract($transaction);
                                 <?php if(isset($beneficiaires) && !empty($beneficiaires)):?>
                                     <?php foreach($beneficiaires as $beneficiairy):?>
                                         <?php extract($beneficiairy);?>
-                                        <option value="<?php echo $beneficiary_id?>" <?php echo ($beneficiary_id ==  $d['transaction_detail_intermediate_beneficiary'])?"Selected":"";?>><?php echo $beneficiary_name ." (". ($beneficiary_type  ==  'vendor' ? "Vendor" : $employee_category_name).")".(empty($bank_account_number)?"":" - ".substr($bank_account_number, -6)); ?></option>
+                                        <option value="<?php echo $beneficiary_id?>" <?php echo ($beneficiary_id ==  $d['transaction_detail_intermediate_beneficiary'])?"Selected":"";?>><?php echo $beneficiary_name.' ' . ($beneficiary_type  ==  'employee' ? '('.ucfirst($employee_category_name).')' : '('. ucfirst($beneficiary_type) .')').(empty($bank_account_number)?"":" - ".substr($bank_account_number, -6)); ?></option>
                                     <?php endforeach?>
                                 <?php endif?>
                             </select>
@@ -72,7 +72,7 @@ extract($transaction);
                                 <?php if(isset($beneficiaires) && !empty($beneficiaires)):?>
                                     <?php foreach($beneficiaires as $beneficiairy):?>
                                         <?php extract($beneficiairy);?>
-                                        <option value="<?php echo $beneficiary_id?>" <?php echo ($beneficiary_id ==  $d['transaction_detail_destination_beneficiary'])?"Selected":"";?>><?php echo $beneficiary_name ." (". ($beneficiary_type  ==  'vendor' ? "Vendor" : $employee_category_name).")".(empty($bank_account_number)?"":" - ".substr($bank_account_number, -6)); ?></option>
+                                        <option value="<?php echo $beneficiary_id?>" <?php echo ($beneficiary_id ==  $d['transaction_detail_destination_beneficiary'])?"Selected":"";?>><?php echo $beneficiary_name.' ' . ($beneficiary_type  ==  'employee' ? '('.ucfirst($employee_category_name).')' : '('. ucfirst($beneficiary_type) .')').(empty($bank_account_number)?"":" - ".substr($bank_account_number, -6)); ?></option>
                                     <?php endforeach?>
                                 <?php endif?>
                             </select>

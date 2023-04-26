@@ -73,6 +73,18 @@ $(document).ready(
                 dialogue.show();
             });
         });
+        // DELETE project
+        let beneficiariesDeleteButtons =   $('.beneficiaries_list .col:last-child a.danger');
+        beneficiariesDeleteButtons.each(function() {
+            $(this).on('click', function(e) {
+                javascript:void(0);
+                e.preventDefault();
+                let value   =   $(this).attr('href');
+                let yesButton   =   dialogue.find('.foot a');
+                yesButton.attr('href', value);
+                dialogue.show();
+            });
+        });
         // ADD TEAM MEMEBER
             // GENERATE TEAM MEMEBERS
             let teamMemberGeneratorButton   =   $('.team-member-generator');

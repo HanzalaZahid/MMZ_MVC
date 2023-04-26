@@ -528,6 +528,11 @@ div.employees_list{
         grid-template-columns: 50px repeat(6, minmax(100px, 1fr)) minmax(100px, 200px);
     }
 }
+div.beneficiaries_list{
+    .row{
+        grid-template-columns: 50px repeat(5, minmax(100px, 1fr)) minmax(100px, 200px);
+    }
+}
 div.vendors_list{
     .row{
         grid-template-columns: 50px repeat(4, minmax(100px, 1fr)) minmax(100px, 200px);
