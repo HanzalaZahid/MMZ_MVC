@@ -21,6 +21,9 @@ class Router{
     public function put($uri, $directory, $controller){
         $this->add_route($uri, 'PUT', $directory, $controller);
     }
+    public function patch($uri, $directory, $controller){
+        $this->add_route($uri, 'PATCH', $directory, $controller);
+    }
     public function route($uri, $method){
         if (isset($this->routes[$uri]['uri'])){
             if ($this->routes[$uri]['uri']  ==  $uri && $this->routes[$uri]['method']   ==  strtoupper($method)){

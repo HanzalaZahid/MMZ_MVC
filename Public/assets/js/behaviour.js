@@ -89,7 +89,6 @@ $(document).ready(
             // GENERATE TEAM MEMEBERS
             let teamMemberGeneratorButton   =   $('.team-member-generator');
             let memberDetail                =   $('form.add-team-member .form_group:first');
-            console.log(memberDetail)
             teamMemberGeneratorButton.on('click', ()=>{
                 let clone   =   memberDetail.clone();
                 let member  =   clone.find('select').val("");

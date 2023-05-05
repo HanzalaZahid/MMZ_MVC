@@ -28,6 +28,10 @@ $router->post('/store-project', 'projects', 'store');
 $router->put('/put-project', 'projects', 'put');
 $router->get('/edit-project', 'projects', 'edit');
 $router->get('/delete-project', 'projects', 'destroy');
+// UPLOAD PROJECTS FILE
+$router->patch('/upload-projects-files', 'projects/files', 'upload');
+$router->post('/get-project-files', 'projects/files', 'get');
+$router->post('/delete-project-file', 'projects/files', 'delete');
 // PROJECT TEAMS
 $router->get('/add-project-team', 'projects\teams', 'add');
 $router->get('/project-team', 'projects\teams', 'show');

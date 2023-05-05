@@ -17,6 +17,9 @@ function models($file){
 function core($file){
     require(__DIR__    .   DIRECTORY_SEPARATOR   .   $file  .   ".php");
 }
+function getUploadPath(){
+    return __DIR__  .   DIRECTORY_SEPARATOR .   ".." . DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR;
+}
 function abort($message =   "",$error_code  =   404){
     http_response_code($error_code);
     $args['message']    =   $message;

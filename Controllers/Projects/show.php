@@ -15,5 +15,6 @@ $investment =   $projects->getInvestment($id);
 $args['project'] =   $project;
 $args['team'] =   $team;
 $args['investment'] =   $investment;
+$args['head']['scripts']    =   'uploadFiles';
 view("projects", "show", $args);
 ?>

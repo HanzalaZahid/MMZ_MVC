@@ -28,4 +28,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title><?php echo $page_title;?></title>
+    <!-- jQuery UPLOADER -->
+    <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
+    <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
+    <!-- FILE ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-4Zsl9+4GJjHuK0lUDlYw1F+IcWxT8JvOjMkH6Cy9ncbW0at8jvklJOMC3SEeZhATsWln+L7Vfzq3q3XpJmW+gQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
